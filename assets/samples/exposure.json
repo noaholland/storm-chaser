@@ -1,0 +1,50 @@
+{
+ "horizon_bars": 60,
+ "confidence": 0.99,
+ "positions": [
+  {
+   "index": 0,
+   "asset": "USDJPY",
+   "status": "ok",
+   "units": 1000000.0,
+   "price": 163.4945,
+   "value": 163494500.0,
+   "currency": "JPY",
+   "pnl": -405500.00000001775,
+   "var": 1149318.4673037017,
+   "es": 1316057.8826259337,
+   "var_baseline": 143807.85769399148,
+   "stressed_loss": 1316057.8826259337,
+   "method": "normal",
+   "sigma_bar": 0.000391487523470348,
+   "sigma_bar_baseline": 4.883377030040973e-05,
+   "vol_ratio": 8.016737619521122,
+   "level": "tornado",
+   "worst_regime_move": -0.0024101605044861522
+  },
+  {
+   "index": 1,
+   "asset": "DOGE",
+   "status": "unknown_asset",
+   "error": "no feed or price for 'DOGE'; start a replay/live session for it or pass 'price'"
+  }
+ ],
+ "totals": {
+  "JPY": {
+   "value": 163494500.0,
+   "gross": 163494500.0,
+   "pnl": -405500.00000001775,
+   "var": 1149318.4673037017,
+   "var_diversified": 1149318.4673037017,
+   "es": 1316057.8826259337,
+   "var_baseline": 143807.85769399148,
+   "stressed_loss": 1316057.8826259337,
+   "stressed_loss_pct_gross": 0.008049554465905176,
+   "incomplete": false
+  }
+ },
+ "notes": [],
+ "known_assets": [
+  "USDJPY"
+ ]
+}

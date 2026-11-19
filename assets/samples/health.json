@@ -1,0 +1,18 @@
+{
+ "status": "ok",
+ "uptime_s": 0.419435977935791,
+ "sessions": {
+  "USDJPY": {
+   "kind": "replay",
+   "state": "running",
+   "feed": "paused",
+   "error": null,
+   "progress": 0.3885
+  }
+ },
+ "latest": "USDJPY",
+ "notifiers": [
+  "log"
+ ],
+ "ui": true
+}

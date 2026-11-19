@@ -1,0 +1,49 @@
+{
+ "started": true,
+ "symbol": "USDJPY",
+ "kind": "replay",
+ "meta": {
+  "file": "sgx_usdjpy_2026.parquet",
+  "symbol": "USDJPY",
+  "start": "2026-07-27",
+  "end": "2026-08-05",
+  "title": "SGX USDJPY storm (27 Jul - 4 Aug 2026)",
+  "source": "SGX FX challenge dataset, 1m bid/ask + forward curve",
+  "description": "360bp range on 30 Jul, follow-through to 155.26 on 3 Aug. Spread and carry-curve features live.",
+  "dataset": "sgx_usdjpy_storm",
+  "report": {
+   "rows_in": 64355,
+   "rows_out": 10188,
+   "dropped_bad_timestamp": 0,
+   "dropped_bad_price": 0,
+   "dropped_duplicates": 0,
+   "was_unsorted": false,
+   "columns": {
+    "timestamp": "timestamp",
+    "price": "mid",
+    "bid": "bid",
+    "ask": "ask"
+   },
+   "start": 1785110400.0,
+   "end": 1785887940.0,
+   "median_step_s": 60.0,
+   "has_quotes": true,
+   "curve_tenors": [
+    "1W",
+    "2W",
+    "3W",
+    "1M",
+    "2M",
+    "3M",
+    "6M",
+    "9M",
+    "1Y"
+   ]
+  },
+  "bar_seconds": 60.0,
+  "speed_clamped": false
+ },
+ "speed": 1000000.0,
+ "bar_seconds": 60.0,
+ "warmup_bars": 60
+}

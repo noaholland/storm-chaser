@@ -1,0 +1,215 @@
+{
+ "symbol": "USDJPY",
+ "state": "paused",
+ "level": "tornado",
+ "score": 92.71,
+ "last_score": 92.71,
+ "last_level": "tornado",
+ "peak_score": 92.71,
+ "kind": "squall",
+ "elevated_bars": 1,
+ "storm_heat_min": 1.0,
+ "carry": {
+  "curve": {
+   "1W": -0.03013862855732441,
+   "2W": -0.02907022275030613,
+   "3W": -0.028916073963046074,
+   "1M": -0.028849545866250992,
+   "2M": -0.029252951964735985,
+   "3M": -0.029787808656692505,
+   "6M": -0.030141081660985947,
+   "9M": -0.02993173524737358,
+   "1Y": -0.029825834557414055
+  },
+  "median": -0.029787808656692505,
+  "earning_side": "long",
+  "dislocation_z": 23.72456852646397,
+  "dislocation_peak_z": 23.72456852646397,
+  "unwind_score": 0.7297085114726619,
+  "unwind": true
+ },
+ "price": 163.4945,
+ "bid": 163.493,
+ "ask": 163.496,
+ "ts": 1785348060.0,
+ "components": {
+  "vol": 1.0,
+  "jump": 1.0,
+  "drawdown": 0.7297,
+  "spread": 0.0,
+  "curve": 1.0
+ },
+ "features": {
+  "vol_z": 5.887994,
+  "jump_z": 37.365265,
+  "jump_peak_z": 37.365265,
+  "drawdown": 0.002459,
+  "runup": 0.0,
+  "drawdown_z": 6.513397,
+  "spread": 1.8e-05,
+  "spread_ratio": 0.941196
+ },
+ "vol": {
+  "sigma_bar_fast": 0.000391487523470348,
+  "sigma_bar_base": 4.883377030040973e-05,
+  "annualised_fast": 0.2839188872267719,
+  "annualised_base": 0.035415763955579195
+ },
+ "warmup": {
+  "have": 3957,
+  "need": 60
+ },
+ "feed": {
+  "age_s": 0.050952833000337705,
+  "stale_after_s": 10.0,
+  "accepted": 3958,
+  "rejected": {},
+  "gaps": 0,
+  "pending_outlier": false
+ },
+ "session": {
+  "kind": "replay",
+  "state": "paused",
+  "error": null,
+  "started": 1794670074.310206,
+  "dataset": "sgx_usdjpy_storm",
+  "speed": 1000000.0,
+  "progress": 0.3885,
+  "reconnects": null,
+  "feed_error": null,
+  "pause_on": null,
+  "pause_reason": "tornado",
+  "ahead": {
+   "from_ts": 1785348060.0,
+   "from_price": 163.4945,
+   "end_ts": 1785887940.0,
+   "low": 155.2645,
+   "low_ts": 1785717960.0,
+   "pct_to_low": -0.050338084767377445,
+   "high": 163.738,
+   "high_ts": 1785398100.0,
+   "pct_to_high": 0.001489346736434527
+  },
+  "title": "SGX USDJPY storm (27 Jul - 4 Aug 2026)",
+  "bar_seconds": 60.0,
+  "curve_tenors": [
+   "1W",
+   "2W",
+   "3W",
+   "1M",
+   "2M",
+   "... 4 more"
+  ]
+ },
+ "playbook": {
+  "stay_safe": "Tornado. Reduce or hedge now; expect gaps, wide spreads and margin calls.",
+  "ideas": [
+   {
+    "kind": "hedge",
+    "title": "Hedge the delta first",
+    "detail": "Realised vol is 28.4% annualised, 8.0x the calm 3.5% (about +/-1.49% a day). An offsetting forward or futures position in USDJPY cuts the loss one for one and stays cheap to put on even after option premia have jumped."
+   },
+   {
+    "kind": "long_vol",
+    "title": "Long volatility, with defined risk",
+    "detail": "Options now price a storm. Prefer a spread (a put spread or a strangle financed by selling further wings) over an outright straddle: it pays if the move extends and caps what you lose if vol collapses."
+   },
+   {
+    "kind": "carry",
+    "title": "Carry unwind under way",
+    "detail": "The long side earns about 3.0% a year in carry and is being squeezed out while the forward curve dislocates. That is the crowded exit: cut or hedge carry positions rather than add to them."
+   }
+  ],
+  "early_warning": "vol z +5.9, largest recent jump 37.4 sigma, drawdown 0.25%",
+  "whats_next": "POST /simulate for the P&L fan from this regime.",
+  "opportunity": "Volatility is 8.0x its baseline: optionality is expensive, so hedged sellers of vol and liquidity providers are paid most now; wait for the score to roll over before fading the move.",
+  "disclaimer": "Heuristic reading of the data, not investment advice."
+ },
+ "new_transitions": [
+  {
+   "ts": 1785252060.0,
+   "frm": "green",
+   "to": "watch",
+   "score": 42.39,
+   "price": 163.6635,
+   "why": "vol",
+   "kind": "squall",
+   "components": {
+    "vol": 0.5472759637755392,
+    "jump": 0.1657780899970197,
+    "drawdown": 0.308600994848287,
+    "spread": 0.0,
+    "curve": 0.053663886854180554
+   },
+   "carry_unwind": false
+  },
+  {
+   "ts": 1785254040.0,
+   "frm": "watch",
+   "to": "green",
+   "score": 13.99,
+   "price": 163.6855,
+   "why": "drawdown",
+   "kind": "calm",
+   "components": {
+    "vol": 0.13916757420332893,
+    "jump": 0.0,
+    "drawdown": 0.1900772956422534,
+    "spread": 0.0,
+    "curve": 0.0
+   },
+   "carry_unwind": false
+  },
+  {
+   "ts": 1785300060.0,
+   "frm": "green",
+   "to": "watch",
+   "score": 35.39,
+   "price": 163.366,
+   "why": "drawdown",
+   "kind": "squall",
+   "components": {
+    "vol": 0.2797754482595944,
+    "jump": 0.06343638036629107,
+    "drawdown": 0.4900743819673165,
+    "spread": 0.0,
+    "curve": 0.0
+   },
+   "carry_unwind": false
+  },
+  {
+   "ts": 1785302100.0,
+   "frm": "watch",
+   "to": "green",
+   "score": 11.85,
+   "price": 163.418,
+   "why": "vol",
+   "kind": "calm",
+   "components": {
+    "vol": 0.17315253598465105,
+    "jump": 0.0,
+    "drawdown": 0.01655044297415871,
+    "spread": 0.0,
+    "curve": 0.0
+   },
+   "carry_unwind": false
+  },
+  {
+   "ts": 1785348060.0,
+   "frm": "green",
+   "to": "tornado",
+   "score": 92.71,
+   "price": 163.4945,
+   "why": "vol",
+   "kind": "squall",
+   "components": {
+    "vol": 1.0,
+    "jump": 1.0,
+    "drawdown": 0.7297085114726619,
+    "spread": 0.0,
+    "curve": 1.0
+   },
+   "carry_unwind": true
+  }
+ ]
+}

@@ -1,0 +1,96 @@
+.venv/bin/python scripts/e2e.py
+Storm Chaser API up on http://127.0.0.1:54468: ok, notifiers ['log']
+
+=== edge cases over HTTP ===
+  [PASS] /score before any feed -> 409, not a fake green
+  [PASS] unknown dataset -> 400
+  [PASS] negative replay speed -> 422
+  [PASS] empty portfolio -> zero risk, 200
+
+=== sgx_usdjpy_storm: SGX USDJPY storm (27 Jul - 4 Aug 2026) ===
+  [PASS] replay started  (10188 rows, bar 60s, speed 200000x)
+  data 2026-07-27 00:00 -> 2026-08-04 23:59 | price=mid quotes=True curve tenors=9
+  2026-07-29 18:01     green -> TORNADO  score  92.7  price 163.494  driver=vol kind=squall  CARRY UNWIND
+  2026-07-29 18:21   tornado -> WARNING  score  53.2  price 163.569  driver=vol kind=squall
+  2026-07-29 18:31     watch -> WARNING  score  50.7  price 163.465  driver=drawdown kind=squall
+  2026-07-30 10:15     watch -> WARNING  score  57.7  price 162.988  driver=drawdown kind=squall
+  2026-07-30 10:17   warning -> TORNADO  score  84.8  price 162.594  driver=jump kind=squall  CARRY UNWIND
+  2026-07-30 10:51   tornado -> WARNING  score  49.9  price 162.818  driver=drawdown kind=squall
+  2026-07-30 11:05     watch -> WARNING  score  51.8  price 162.739  driver=drawdown kind=squall
+  2026-07-30 13:37     watch -> TORNADO  score  79.2  price 162.261  driver=jump kind=squall
+  [PASS] stream delivered snapshots  (44 events, 46 level changes)
+  [PASS] warm-up is reported as warming_up with no score, never a false green  (first 59 bars)
+  [PASS] score reached TORNADO  (peak score 92.71)
+  [PASS] TORNADO fired before/at the low of the crash  (alert 2026-07-29 18:01 @ 163.494; low 2026-08-03 00:46 @ 155.264; 102.8h earlier, -5.0% still to fall)
+  [PASS] replay finished cleanly  (accepted 10188, rejected none, gaps 1)
+  [PASS] SGX: warning/tornado on 29-30 Jul 2026  (['2026-07-29', '2026-07-30', '2026-07-31', '2026-08-03'])
+  [PASS] SGX: 30 Jul escalates from squall to STORM
+  [PASS] SGX: carry-unwind signal during the storm
+  forward curve (implied rate differential): 1W=-3.01% 2W=-2.91% 3W=-2.89% 1M=-2.88% 2M=-2.93% 3M=-2.98% 6M=-3.01% 9M=-2.99% 1Y=-2.98%; carry earned by the long side
+  [PASS] SGX: spread + forward-curve features live
+  [PASS] replay froze at the first TORNADO for inspection
+  frozen at 2026-07-29 18:01: long USDJPY worth 163,494,500 JPY, next 60 bars, 99%:
+    VaR 1,149,318 (calm baseline 143,808) | ES 1,316,058 | stressed loss 1,316,058 JPY
+  [PASS] /exposure: VaR <= ES <= stressed loss, storm VaR > calm VaR  (vol is 8.0x baseline)
+  [PASS] /exposure: VaR equals the closed form |V| x (1 - exp(-2.3263 x sigma_bar x sqrt(60)))  (163,494,500 x (1 - exp(-2.3263 x 0.000391 x 7.7460)) = 1,149,318)
+  [PASS] /simulate: ordered 5/50/95 P&L fan  (2000 paths x 60 steps, garch)
+    cyclone simulator: P&L p5 -677,082 / p50 -27,371 / p95 588,602 JPY; P(loss) 53%
+
+=== btc_ftx_2022: Bitcoin, FTX collapse (6-12 Nov 2022) ===
+  [PASS] replay started  (10080 rows, bar 60s, speed 200000x)
+  data 2022-11-06 00:00 -> 2022-11-12 23:59 | price=close quotes=False curve tenors=0
+  2022-11-08 04:08     watch -> WARNING  score  50.1  price 20,078.6  driver=drawdown kind=squall
+  2022-11-08 04:11   warning -> TORNADO  score  96.4  price 19,748.1  driver=jump kind=squall
+  2022-11-08 05:02   tornado -> WARNING  score  57.5  price 19,692.4  driver=drawdown kind=squall
+  2022-11-08 16:32     watch -> WARNING  score  63.0  price 20,518.3  driver=drawdown kind=squall
+  2022-11-08 17:21     watch -> WARNING  score  63.4  price 19,831.5  driver=drawdown kind=squall
+  2022-11-08 18:05   warning -> TORNADO  score  75.3  price 19,119  driver=drawdown kind=squall
+  2022-11-08 18:54   tornado -> WARNING  score  48.1  price 18,782.5  driver=drawdown kind=storm
+  2022-11-08 19:23     watch -> WARNING  score  68.3  price 18,073.4  driver=drawdown kind=storm
+  [PASS] stream delivered snapshots  (39 events, 43 level changes)
+  [PASS] warm-up is reported as warming_up with no score, never a false green  (first 59 bars)
+  [PASS] score reached TORNADO  (peak score 96.38)
+  [PASS] TORNADO fired before/at the low of the crash  (alert 2022-11-08 04:11 @ 19,748.1; low 2022-11-09 22:07 @ 15,601.9; 41.9h earlier, -21.0% still to fall)
+  [PASS] replay finished cleanly  (accepted 10080, rejected none, gaps 0)
+  [PASS] replay froze at the first TORNADO for inspection
+  frozen at 2022-11-08 04:11: long BTCUSDT worth 1,000,000 USD, next 60 bars, 99%:
+    VaR 53,924 (calm baseline 8,078) | ES 61,533 | stressed loss 61,533 USD
+  [PASS] /exposure: VaR <= ES <= stressed loss, storm VaR > calm VaR  (vol is 6.8x baseline)
+  [PASS] /exposure: VaR equals the closed form |V| x (1 - exp(-2.3263 x sigma_bar x sqrt(60)))  (1,000,000 x (1 - exp(-2.3263 x 0.003076 x 7.7460)) = 53,924)
+  [PASS] /simulate: ordered 5/50/95 P&L fan  (2000 paths x 60 steps, garch)
+    cyclone simulator: P&L p5 -34,356 / p50 -3,335 / p95 26,858 USD; P(loss) 57%
+
+=== gbpusd_minibudget_2022: GBPUSD, UK mini-budget (19-30 Sep 2022) ===
+  [PASS] replay started  (948 rows, bar 900s, speed 200000x)
+  data 2022-09-19 00:00 -> 2022-09-30 20:45 | price=close quotes=False curve tenors=0
+  2022-09-21 18:30     watch -> WARNING  score  58.7  price 1.13359  driver=vol kind=squall
+  2022-09-26 00:45     watch -> TORNADO  score  98.2  price 1.04  driver=jump kind=squall
+  2022-09-26 05:15   tornado -> WARNING  score  50.3  price 1.05286  driver=drawdown kind=storm
+  [PASS] stream delivered snapshots  (51 events, 15 level changes)
+  [PASS] warm-up is reported as warming_up with no score, never a false green  (first 59 bars)
+  [PASS] score reached TORNADO  (peak score 98.15)
+  [PASS] TORNADO fired before/at the low of the crash  (alert 2022-09-26 00:45 @ 1.04; low 2022-09-26 03:30 @ 1.0458; 2.8h earlier, 0.6% still to fall)
+  [PASS] replay finished cleanly  (accepted 948, rejected none, gaps 1)
+  [PASS] replay froze at the first TORNADO for inspection
+  frozen at 2022-09-26 01:00: long GBPUSD worth 1,000,000 USD, next 60 bars, 99%:
+    VaR 126,474 (calm baseline 14,663) | ES 143,511 | stressed loss 143,511 USD
+  [PASS] /exposure: VaR <= ES <= stressed loss, storm VaR > calm VaR  (vol is 9.2x baseline)
+  [PASS] /exposure: VaR equals the closed form |V| x (1 - exp(-2.3263 x sigma_bar x sqrt(60)))  (1,000,000 x (1 - exp(-2.3263 x 0.007504 x 7.7460)) = 126,474)
+  [PASS] /simulate: ordered 5/50/95 P&L fan  (2000 paths x 60 steps, garch)
+    cyclone simulator: P&L p5 -78,432 / p50 -6,245 / p95 68,977 USD; P(loss) 56%
+
+=== sgx_usdjpy_2026: two full months, scheduled data releases ===
+  [PASS] full SGX file replayed  (64355 ticks, 11 weekend/holiday gaps, rejected none)
+  [PASS] 2026-07-14 12:31 release: alert, labelled squall, green again within 2.5h  (alert 12:31 (tornado), back to green after 62 min)
+  [PASS] 2026-08-07 12:31 release: alert, labelled squall, green again within 2.5h  (alert 12:31 (tornado), back to green after 71 min)
+  [PASS] daily 21:00 roll / Sunday reopen wide spreads never raise a warning  (0 alerts)
+
+=== after the storm ===
+  [PASS] mixed portfolio handled per position  (['ok', 'unknown_asset', 'zero', 'error'])
+  [PASS] extreme Monte Carlo params are clamped, still answers  (steps: 1000000000 -> 5000; n_paths: 1000000000 -> 20000; n_paths: 20000 -> 800 (steps*paths budget);)
+  [PASS] bootstrap simulator works
+  [PASS] alerts fired and were debounced  (56 kept in log, 0 suppressed)
+  last alert: 🟠 Storm Chaser: USDJPY watch -> WARNING | score 70/100 | price 159.971 2026-08-30 20:16 UTC | driver: jump
+  [PASS] /health ok
+
+47/47 checks passed

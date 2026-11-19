@@ -1,0 +1,125 @@
+{
+ "symbol": "USDJPY",
+ "points": 198,
+ "stride": 20,
+ "ts": [
+  1785110460.0,
+  1785111660.0,
+  1785112860.0,
+  1785114060.0,
+  1785115260.0,
+  "... 193 more"
+ ],
+ "price": [
+  163.595,
+  163.596,
+  163.5765,
+  163.636,
+  163.581,
+  "... 193 more"
+ ],
+ "score": [
+  null,
+  null,
+  null,
+  0.0,
+  0.0,
+  "... 193 more"
+ ],
+ "level": [
+  "warming_up",
+  "warming_up",
+  "warming_up",
+  "green",
+  "green",
+  "... 193 more"
+ ],
+ "transitions": [
+  {
+   "ts": 1785186060.0,
+   "frm": "green",
+   "to": "watch",
+   "score": 29.35,
+   "price": 163.735,
+   "why": "spread",
+   "kind": "squall",
+   "components": {
+    "vol": 0.0,
+    "jump": 0.0,
+    "drawdown": 0.0,
+    "spread": 1.0,
+    "curve": 0.0
+   },
+   "carry_unwind": false
+  },
+  {
+   "ts": 1785190500.0,
+   "frm": "watch",
+   "to": "green",
+   "score": 5.13,
+   "price": 163.752,
+   "why": "spread",
+   "kind": "calm",
+   "components": {
+    "vol": 0.0,
+    "jump": 0.0,
+    "drawdown": 0.0,
+    "spread": 0.17489265073499105,
+    "curve": 0.0
+   },
+   "carry_unwind": false
+  },
+  {
+   "ts": 1785252060.0,
+   "frm": "green",
+   "to": "watch",
+   "score": 42.39,
+   "price": 163.6635,
+   "why": "vol",
+   "kind": "squall",
+   "components": {
+    "vol": 0.5472759637755392,
+    "jump": 0.1657780899970197,
+    "drawdown": 0.308600994848287,
+    "spread": 0.0,
+    "curve": 0.053663886854180554
+   },
+   "carry_unwind": false
+  },
+  {
+   "ts": 1785254040.0,
+   "frm": "watch",
+   "to": "green",
+   "score": 13.99,
+   "price": 163.6855,
+   "why": "drawdown",
+   "kind": "calm",
+   "components": {
+    "vol": 0.13916757420332893,
+    "jump": 0.0,
+    "drawdown": 0.1900772956422534,
+    "spread": 0.0,
+    "curve": 0.0
+   },
+   "carry_unwind": false
+  },
+  {
+   "ts": 1785300060.0,
+   "frm": "green",
+   "to": "watch",
+   "score": 35.39,
+   "price": 163.366,
+   "why": "drawdown",
+   "kind": "squall",
+   "components": {
+    "vol": 0.2797754482595944,
+    "jump": 0.06343638036629107,
+    "drawdown": 0.4900743819673165,
+    "spread": 0.0,
+    "curve": 0.0
+   },
+   "carry_unwind": false
+  },
+  "... 2 more"
+ ]
+}

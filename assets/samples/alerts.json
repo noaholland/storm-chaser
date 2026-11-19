@@ -1,0 +1,16 @@
+{
+ "alerts": [
+  {
+   "symbol": "USDJPY",
+   "kind": "tornado",
+   "text": "\ud83c\udf2a\ufe0f Storm Chaser: USDJPY green -> TORNADO | score 93/100 | price 163.494 2026-07-29 18:01 UTC | driver: vol, carry unwind",
+   "wall_time": 1794670074.4032261,
+   "level": "tornado",
+   "score": 92.71,
+   "price": 163.4945,
+   "data_ts": 1785348060.0
+  }
+ ],
+ "suppressed_by_debounce": 0,
+ "debounce_s": 300.0
+}
